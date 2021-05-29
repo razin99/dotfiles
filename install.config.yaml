@@ -1,0 +1,24 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    # vim + nvim
+    ~/.vim: vim/vim
+    ~/.vimrc: vim/vimrc
+    ~/.config/nvim:
+        create: true
+        path: vim/nvim
+    # zsh + oh-my-zsh
+    ~/.zshrc: zsh/zshrc
+    ~/.zshrc.zni: zsh/zshrc.zni
+    ~/.oh-my-zsh: zsh/oh-my-zsh
+    # tmux
+    ~/.tmux.conf: tmux/tmux.conf
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - [vim -c 'PlugInstall' -c 'qa' >/dev/null, Install vimplug plugins]
+
