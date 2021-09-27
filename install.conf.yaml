@@ -10,7 +10,7 @@
     ~/.vimrc: vim/vimrc
     ~/.config/nvim:
         create: true
-        path: vim/nvim
+        path: nvim
     # zsh + oh-my-zsh
     ~/.zshrc: zsh/zshrc
     ~/.zshrc.zni: zsh/zshrc.zni
