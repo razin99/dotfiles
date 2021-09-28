@@ -1,0 +1,6 @@
+shell:
+  program: "C:\\Windows\\System32\\wsl.exe ~"
+font:
+  normal:
+    family: Consolas Nerd Font
+  size: 18
