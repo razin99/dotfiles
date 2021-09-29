@@ -4,3 +4,5 @@ font:
   normal:
     family: Consolas Nerd Font
   size: 18
+key_bindings:
+  - { key: Space, mods: Control, chars: "\x00" }
