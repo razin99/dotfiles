@@ -1,7 +1,8 @@
 " IMPORTANT KEYBINDS
 " --- TELESCOPE ---
 "   <leader>ff -> find files
-"   <leader>fg -> live grep
+"   <leader>fg -> find files from 'git status'
+"   <leader>rg -> live grep
 "   <leader>fb -> open file browser
 "   <leader>bu -> show buffers
 "   <leader>fd -> show diagnostics from coc
@@ -121,7 +122,8 @@ call plug#end()
 
 " -- TELESCOPE CONFIG
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fg <cmd>Telescope git_status<cr>
+nnoremap <leader>rg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <leader>bu <cmd>Telescope buffers<cr>
 lua << EOF
