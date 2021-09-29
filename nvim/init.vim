@@ -138,6 +138,15 @@ require("todo-comments").setup {}
 EOF
 nnoremap <silent> <leader>td :TodoTelescope<cr>
 
+" -- TS CONTEXTUAL COMMENTS CONFIG
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+    context_commentstring = {
+        enable = true
+    }
+}
+EOF
+
 " -- LUALINE CONFIG
 lua << EOF
 require('lualine').setup {
