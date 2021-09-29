@@ -133,6 +133,7 @@ nnoremap <leader>fs <cmd>Telescope coc document_symbols<cr>
 lua << EOF
 require("todo-comments").setup {}
 EOF
+nnoremap <silent> <leader>td :TodoTelescope<cr>
 
 " -- LUALINE CONFIG
 lua << EOF
