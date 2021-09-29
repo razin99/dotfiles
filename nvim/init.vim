@@ -82,8 +82,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " -- TROUBLE LINE WARN
 Plug 'folke/trouble.nvim'
 
-" -- LIGHTLINE -- status bar
-Plug 'itchyny/lightline.vim'
+" -- LUALINE -- status bar
+Plug 'hoob3rt/lualine.nvim'
 
 " -- ICON PACK
 Plug 'kyazdani42/nvim-web-devicons'
@@ -119,20 +119,32 @@ lua << EOF
 require("todo-comments").setup {}
 EOF
 
-" -- LIGHTLINE CONFIG
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-	  \   'right': [ [ 'lineinfo' ],
-	  \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-  \ }
-
+" -- LUALINE CONFIG
+lua << EOF
+require('lualine').setup {
+    options = {
+        theme = 'onedark'
+    },
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff'},
+        lualine_c = {'filename'},
+        lualine_x = {
+            {'diagnostics', sources = {"coc"}},
+            'encoding', 'fileformat'},
+        lualine_y = {'filetype'},
+        lualine_z = {'location'}
+    },
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
+    },
+}
+EOF
 
 " -- INDENT BLANKLINE CONFIG
 lua << EOF
