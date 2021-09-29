@@ -100,6 +100,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'tpope/vim-commentary'
 
+" -- TSX
+Plug 'maxmellon/vim-jsx-pretty'
+
 " -- TODO COMMENT TAGS
 Plug 'folke/todo-comments.nvim'
 
@@ -107,7 +110,7 @@ Plug 'folke/todo-comments.nvim'
 Plug 'chaoren/vim-wordmotion'
 
 " -- THEME
-Plug 'monsonjeremy/onedark.nvim'
+Plug 'monsonjeremy/onedark.nvim' " BUG: bad JSX highlighting
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " -- GIT SIGN -- gutter highlights
