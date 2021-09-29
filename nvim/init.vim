@@ -1,3 +1,49 @@
+" IMPORTANT KEYBINDS
+" --- TELESCOPE ---
+"   <leader>ff -> find files
+"   <leader>fg -> live grep
+"   <leader>fb -> open file browser
+"   <leader>bu -> show buffers
+"   <leader>fd -> show diagnostics from coc
+"   <leader>fs -> show document symbols from coc
+" -----------------
+"
+" ---   COC     ---
+"   <C-Space>  -> trigger completion
+"   gd         -> go to definition
+"   gy         -> go to type defs
+"   gi         -> go to implementation
+"   gr         -> show references
+"   [g         -> jump to previous [info, warn, err]
+"   ]g         -> jump to next     [info, warn, err]
+"   K          -> preview documentation in popup window
+"   <leader>rn -> rename symbol under cursor
+"   <leader>rf -> show possible refactor options
+" -----------------
+"
+" --- GITSIGNS  ---
+"  [c         -> jump to previous 'hunk'
+"  ]c         -> jump to next 'hunk'
+"  <leader>hs -> stage selected or undercursor 'hunk'
+"  <leader>hu -> undo staging of 'hunk'
+"  <leader>hR -> git reset current buffer   WARN: destructive action
+"  <leader>hp -> preview 'hunk' in popup window (show deltas at 'hunk')
+"  <leader>hb -> view line blame
+"  <leader>hS -> stage current buffer
+"  <leader>hU -> reset buffer index (unstage all hunk in buffer?)
+" -----------------
+"
+" ---COMMENTARY ---
+"  gcc        -> toggle comment current line
+"  gcgc       -> uncomment set of adjacent lines
+"  gc[motion] -> toggle comment of objects affected by motion
+" -----------------
+"
+" ---   TODO    ---
+"  <leader>td -> show 'todo' tags in CWD with Telescope
+" -----------------
+"
+
 
 " STD MAP
 imap jk <Esc>
