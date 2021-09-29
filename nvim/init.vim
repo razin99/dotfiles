@@ -26,6 +26,7 @@
 "  ]c         -> jump to next 'hunk'
 "  <leader>hs -> stage selected or undercursor 'hunk'
 "  <leader>hu -> undo staging of 'hunk'
+"  <leader>hr -> git restore current hunk   WARN: destructive action
 "  <leader>hR -> git reset current buffer   WARN: destructive action
 "  <leader>hp -> preview 'hunk' in popup window (show deltas at 'hunk')
 "  <leader>hb -> view line blame
