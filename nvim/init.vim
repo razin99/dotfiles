@@ -106,6 +106,11 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " -- GIT SIGN -- gutter highlights
 Plug 'lewis6991/gitsigns.nvim'
 
+" -- COC -- completion + language server
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" -- DEPS -- use coc as LSP with Telescope
+Plug 'fannheyward/telescope-coc.nvim'
+
 call plug#end()
 
 " -- TELESCOPE CONFIG
@@ -113,6 +118,11 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <leader>bu <cmd>Telescope buffers<cr>
+lua << EOF
+require('telescope').load_extension('coc')
+EOF
+nnoremap <leader>fd <cmd>Telescope coc diagnostics<cr>
+nnoremap <leader>fs <cmd>Telescope coc document_symbols<cr>
 
 " -- TODO COMMENT TAGS CONFIG
 lua << EOF
@@ -192,6 +202,48 @@ EOF
 lua << EOF
 require('gitsigns').setup()
 EOF
+
+" -- COC CONFIG
+" enter to select completion
+" if item on list selected, autocomplete. else do coc#on_enter thingy
+inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" previous way of doing this made coc-pairs remove auto indentation, this one
+" works but im not 100% sure why
+
+" trigger completion
+inoremap <silent><expr> <C-Space> coc#refresh()
+
+" vscode like goto binds
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use `"[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+" Refactor code
+nnoremap <leader>rf :CocAction<cr>
+vnoremap <leader>rf :CocAction<cr>
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " -- THEME SELECT
 " colorscheme tokyonight
