@@ -57,6 +57,9 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'monsonjeremy/onedark.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
+" -- GIT SIGN -- gutter highlights
+Plug 'lewis6991/gitsigns.nvim'
+
 call plug#end()
 
 " -- TELESCOPE CONFIG
@@ -127,6 +130,10 @@ require("trouble").setup {
 }
 EOF
 
+" -- GIT SIGNS CONFIG
+lua << EOF
+require('gitsigns').setup()
+EOF
 
 " -- THEME SELECT
 " colorscheme tokyonight
