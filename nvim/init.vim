@@ -65,7 +65,12 @@ set noshowmode
 set shell=/usr/bin/zsh
 set tabstop=4 softtabstop=4
 set shiftwidth=4
+set expandtab
 set scrolloff=50
+
+autocmd FileType
+    \ html,css,javascript,javascriptreact,typescript,json
+    \ setlocal shiftwidth=2 tabstop=2
 
 call plug#begin(stdpath('data') . '/plugged')
 " -- TAB DEPTH INDICATOR
