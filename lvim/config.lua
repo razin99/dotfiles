@@ -127,6 +127,8 @@ end
 lvim.plugins = {
     {"folke/trouble.nvim"},
     {"chaoren/vim-wordmotion"},
+    {"tpope/vim-surround"},
+    {"Vimjas/vim-python-pep8-indent"},
     {"folke/tokyonight.nvim", config=nobg},
     {"shaunsingh/nord.nvim", config=nobg},
     {"lourenci/github-colors", config=nobg},
