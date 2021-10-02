@@ -11,6 +11,8 @@
     ~/.config/nvim:
         create: true
         path: nvim
+    # lvim
+    ~/.config/lvim/config.lua: lvim/config.lua
     # zsh + oh-my-zsh
     ~/.zshrc: zsh/zshrc
     ~/.zshrc.zni: zsh/zshrc.zni
