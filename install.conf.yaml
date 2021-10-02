@@ -18,9 +18,12 @@
     ~/.zshrc: zsh/zshrc
     ~/.zshrc.zni: zsh/zshrc.zni
     ~/.oh-my-zsh: zsh/oh-my-zsh
+
     # tmux
     ~/.tmux.conf: tmux/tmux.conf
 
+    # kitty-terminal
+    ~/.config/kitty: kitty/
     # per-machine zsh configs
     ~/.config.zsh: zsh/config.zsh
 
