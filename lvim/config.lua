@@ -20,9 +20,7 @@ lvim.leader = "space"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = ""
 -- edit a default keymapping
-lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
-lvim.keys.normal_mode["tj"] = ":tabprevious<cr>"
-lvim.keys.normal_mode["tk"] = ":tabnext<cr>"
+-- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
 -- IMPORTANT!!!! Its fucking stupid to always pick the suggestion when you
 -- press enter. Sensible defaults my ass.
@@ -122,16 +120,21 @@ lvim.lang.python.linters = {
 
 -- Additional Plugins
 lvim.plugins = {
-    -- {"folke/tokyonight.nvim"}, {
-    --     "ray-x/lsp_signature.nvim",
-    --     config = function() require"lsp_signature".on_attach() end,
-    --     event = "InsertEnter"
-    -- }
+    -- THEMES
+    {"folke/tokyonight.nvim"},
     {"shaunsingh/nord.nvim"},
     {"lourenci/github-colors"},
     {"navarasu/onedark.nvim"},
+
     {"folke/trouble.nvim"},
     {"chaoren/vim-wordmotion"},
+    {"tpope/vim-surround"},
+    {"Vimjas/vim-python-pep8-indent"},
+    {
+        "ray-x/lsp_signature.nvim",
+        config = function() require"lsp_signature".on_attach() end,
+        event = "InsertEnter"
+    },
     {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
