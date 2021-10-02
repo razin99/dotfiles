@@ -19,4 +19,4 @@ alias vless="/usr/share/nvim/runtime/macros/less.sh"
 
 # Load user configs
 # This is usually specific to each machines
-source ./config.zsh
+source $HOME/.config.zsh
