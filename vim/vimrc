@@ -18,7 +18,7 @@ set shell=/usr/bin/zsh
 set scrolloff=999
 
 autocmd FileType
-    \ html,css,javascript,javascriptreact
+    \ html,css,javascript,javascriptreact,typescript,json
     \ setlocal shiftwidth=2 tabstop=2
 
 imap jk <Esc>
@@ -151,5 +151,4 @@ endfunction
 nmap <leader>rn <Plug>(coc-rename)
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
 
