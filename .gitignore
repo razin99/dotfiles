@@ -4,3 +4,5 @@
 
 .netrwhist
 
+**/config.zsh
+**/packer_compiled.lua
