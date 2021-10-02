@@ -26,6 +26,9 @@ lvim.leader = "space"
 -- press enter. Sensible defaults my ass.
 lvim.builtin.cmp.confirm_opts.select = false
 
+-- Force autopairs to turn on
+lvim.builtin.autopairs.active = true
+
 lvim.keys.normal_mode["<Esc>"] = ":nohl<cr>"
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
