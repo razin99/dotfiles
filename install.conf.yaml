@@ -18,6 +18,9 @@
     # tmux
     ~/.tmux.conf: tmux/tmux.conf
 
+    # per-machine zsh configs
+    ~/.config.zsh: zsh/config.zsh
+
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [vim -c 'q' -c 'PlugInstall' -c 'qa' >/dev/null, Install vimplug plugins]
