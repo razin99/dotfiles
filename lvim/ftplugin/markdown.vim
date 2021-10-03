@@ -6,5 +6,4 @@
 "   tabs -> 2 spaces
 
 setlocal spell spelllang=en_gb
-nnoremap <buffer> =s :Telescope spell_suggest<CR>
 setlocal shiftwidth=2 tabstop=2
