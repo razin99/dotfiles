@@ -2,8 +2,6 @@
 
 -- FIX:  bottom gap of statusline is too big, it looks fuckin ugly
 -- FIX:  python's overall experience, especially when entering codeblocks, it does not indent well
--- TODO: change statusline look, remove the weird thing on most right side
--- TODO: change gitsigns look to a more 'default' look, thinner bars
 -- TODO: replace file explorer with the one from Telescope
 -- TODO: test typescript and typescriptreact features
 
