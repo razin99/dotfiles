@@ -164,11 +164,29 @@ lvim.plugins = {
     },
 }
 
+-- local vert_bar = "│" -- Thin vertical bar
+local vert_bar = "▌" -- Thicc vertical bar
+lvim.builtin.gitsigns.opts.signs.add.text = vert_bar
+lvim.builtin.gitsigns.opts.signs.change.text = vert_bar
+
+lvim.builtin.lualine.sections.lualine_a = {
+    {
+        function()
+            return "    "
+        end,
+        padding = { left = 0, right = 0 },
+        color = {},
+        cond = nil,
+    }
+}
+lvim.builtin.lualine.sections.lualine_z = {}
+-- lvim.builtin.lualine.options.component_separators = { left = "║", right = "║" }
+lvim.builtin.lualine.options.component_separators = { left = "║", right = "¦" }
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.relativenumber = true
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+--     { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
