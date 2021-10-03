@@ -69,6 +69,7 @@ lvim.builtin.treesitter.ensure_installed = {
 		"vim",
 		"javascript",
 		"typescript",
+        "tsx",
 		"bash",
 		"c",
 		"css",
