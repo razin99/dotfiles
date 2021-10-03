@@ -152,6 +152,10 @@ lvim.plugins = {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
             require("indent_blankline").setup {
+                char = "│",
+                -- char = "║",
+                -- char = "█",
+                -- char = "¦",
                 space_char_blankline = " ",
                 show_current_context = true,
                 buftype_exclude = { "terminal", "help", "dashboard" },
