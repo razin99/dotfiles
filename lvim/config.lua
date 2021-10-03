@@ -185,6 +185,12 @@ vim.opt.tabstop = 4
 vim.opt.relativenumber = true
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---     { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
+local two_spaces = "setlocal ts=2 sw=2"
+lvim.autocommands.custom_groups = {
+    -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+    { "BufWinEnter", "*.[jt]sx", two_spaces },
+    { "BufWinEnter", "*.[jt]s", two_spaces },
+    { "BufWinEnter", "*.css", two_spaces },
+    { "BufWinEnter", "*.html", two_spaces },
+    { "BufWinEnter", "*.json", two_spaces },
+}
