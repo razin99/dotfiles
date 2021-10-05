@@ -20,6 +20,9 @@ lvim.leader = "space"
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
+-- Standard terminal clear key map
+lvim.keys.term_mode["<C-l>"] = "clear<cr>"
+
 -- IMPORTANT!!!! Its fucking stupid to always pick the suggestion when you
 -- press enter. Sensible defaults my ass.
 lvim.builtin.cmp.confirm_opts.select = false
