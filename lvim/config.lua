@@ -15,6 +15,9 @@ lvim.builtin.cmp.confirm_opts.select = false
 -- Esc to unhighlight search
 lvim.keys.normal_mode["<Esc>"] = ":nohl<cr>"
 
+-- CTRL + L passthrough, clears terminal
+lvim.keys.term_mode["<C-l>"] = "<C-l>"
+
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = ""
 -- edit a default keymapping
@@ -162,6 +165,11 @@ vim.opt.tabstop = 4
 vim.opt.relativenumber = true
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
+lvim.autocommands.custom_groups = {
+  -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+  { "BufWinEnter", "*.ts", "setlocal ts=2 sw=2" },
+  { "BufWinEnter", "*.js", "setlocal ts=2 sw=2" },
+  { "BufWinEnter", "*.tsx", "setlocal ts=2 sw=2" },
+  { "BufWinEnter", "*.jsx", "setlocal ts=2 sw=2" },
+  { "BufWinEnter", "*.json", "setlocal ts=2 sw=2" },
+}
