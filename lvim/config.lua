@@ -196,4 +196,5 @@ lvim.autocommands.custom_groups = {
     { "BufWinEnter", "*.css", two_spaces },
     { "BufWinEnter", "*.html", two_spaces },
     { "BufWinEnter", "*.json", two_spaces },
+    { "BufWinEnter", "*.tex", "setlocal noexpandtab" },
 }
