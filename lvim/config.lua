@@ -28,7 +28,7 @@ lvim.keys.term_mode["<C-l>"] = "clear<cr>"
 lvim.builtin.cmp.confirm_opts.select = false
 
 -- Force autopairs to turn on
-lvim.builtin.autopairs.active = true
+-- lvim.builtin.autopairs.active = true
 
 lvim.keys.normal_mode["<Esc>"] = ":nohl<cr>"
 
