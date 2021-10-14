@@ -124,6 +124,9 @@ end
 --         args = {}
 --     }
 -- }
+lvim.lang.typescript.formatters = {
+    { exe = "prettier" },
+}
 
 -- Additional Plugins
 lvim.plugins = {
