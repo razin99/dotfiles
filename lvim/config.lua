@@ -116,6 +116,11 @@ lvim.lang.python.linters = {
   }
 }
 
+lvim.lang.typescript.formatters = { { exe = "prettier" }, { exe = "prettier" } }
+lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
+lvim.lang.typescript.linters = { { exe = "eslint" } }
+lvim.lang.typescriptreact.linters = lvim.lang.typescript.linters
+
 local function nobg()
     local groups = { 'Normal', 'SignColumn' }
     for _, group in ipairs(groups) do
@@ -155,6 +160,7 @@ lvim.plugins = {
                 space_char_blankline = " ",
                 show_current_context = true,
                 buftype_exclude = { "terminal", "help", "dashboard" },
+                filetype_exclude = { "dashboard" }
             })
         end
     },
