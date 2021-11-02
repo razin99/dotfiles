@@ -1,9 +1,6 @@
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
--- FIX:  bottom gap of statusline is too big, it looks fuckin ugly
 -- FIX:  python's overall experience, especially when entering codeblocks, it does not indent well
 -- TODO: replace file explorer with the one from Telescope
--- TODO: test typescript and typescriptreact features
+-- BUG:  typescript and typescriptreact works but sometimes you may need to reinstall plugins sometime
 
 
 -- general
@@ -13,24 +10,15 @@ lvim.colorscheme = "onedarker"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
--- add your own keymapping
--- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
--- unmap a default keymapping
--- lvim.keys.normal_mode["<C-Up>"] = ""
--- edit a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
-
--- Standard terminal clear key map
-lvim.keys.term_mode["<C-l>"] = "clear<cr>"
 
 -- IMPORTANT!!!! Its fucking stupid to always pick the suggestion when you
 -- press enter. Sensible defaults my ass.
 lvim.builtin.cmp.confirm_opts.select = false
 
--- Force autopairs to turn on
--- lvim.builtin.autopairs.active = true
-
+-- Esc to unhighlight search
 lvim.keys.normal_mode["<Esc>"] = ":nohl<cr>"
+-- CTRL + L passthrough, clears terminal
+lvim.keys.term_mode["<C-l>"] = "<C-l>"
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- lvim.builtin.telescope.on_config_done = function()
@@ -87,13 +75,13 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
 -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
-lvim.lsp.on_attach_callback = function(client, bufnr)
-  local function buf_set_option(...)
-    vim.api.nvim_buf_set_option(bufnr, ...)
-  end
-  --Enable completion triggered by <c-x><c-o>
-  buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-end
+-- lvim.lsp.on_attach_callback = function(client, bufnr)
+--   local function buf_set_option(...)
+--     vim.api.nvim_buf_set_option(bufnr, ...)
+--   end
+--   --Enable completion triggered by <c-x><c-o>
+--   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+-- end
 -- you can overwrite the null_ls setup table (useful for setting the root_dir function)
 -- lvim.lsp.null_ls.setup = {
 --   root_dir = require("lspconfig").util.root_pattern("Makefile", ".git", "node_modules"),
@@ -127,6 +115,12 @@ end
 lvim.lang.typescript.formatters = {
     { exe = "prettier" },
 }
+lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
+
+lvim.lang.typescript.linters = {
+    { exe = "eslint" },
+}
+lvim.lang.typescriptreact.linters = lvim.lang.typescript.linters
 
 -- Additional Plugins
 lvim.plugins = {
@@ -163,6 +157,7 @@ lvim.plugins = {
                 space_char_blankline = " ",
                 show_current_context = true,
                 buftype_exclude = { "terminal", "help", "dashboard" },
+                filetype_exclude = { "dashboard" }
             }
         end
     },
