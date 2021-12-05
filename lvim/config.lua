@@ -138,7 +138,6 @@ formatters.setup {
         },
     },
 }
-lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
 
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
@@ -156,15 +155,12 @@ linters.setup {
         },
     }
 }
-lvim.lang.typescriptreact.linters = lvim.lang.typescript.linters
 
 -- Additional Plugins
 lvim.plugins = {
     -- THEMES
     {"folke/tokyonight.nvim"},
-    {"shaunsingh/nord.nvim"},
-    {"lourenci/github-colors"},
-    {"navarasu/onedark.nvim"},
+    {"EdenEast/nightfox.nvim"},
 
     {
         "rcarriga/nvim-dap-ui",
@@ -180,7 +176,7 @@ lvim.plugins = {
     {
         "ray-x/lsp_signature.nvim",
         config = function() require"lsp_signature".on_attach() end,
-        event = "InsertEnter"
+        event = "BufRead",
     },
     {
         "folke/todo-comments.nvim",
@@ -224,6 +220,7 @@ lvim.builtin.lualine.sections.lualine_a = {
 lvim.builtin.lualine.sections.lualine_z = {}
 -- lvim.builtin.lualine.options.component_separators = { left = "║", right = "║" }
 lvim.builtin.lualine.options.component_separators = { left = "║", right = "¦" }
+lvim.builtin.lualine.options.theme = "auto"
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.relativenumber = true
@@ -237,5 +234,6 @@ lvim.autocommands.custom_groups = {
     { "BufWinEnter", "*.css", two_spaces },
     { "BufWinEnter", "*.html", two_spaces },
     { "BufWinEnter", "*.json", two_spaces },
-    { "BufWinEnter", "*.tex", "setlocal noexpandtab" },
 }
+
+-- vim.lsp.buf.code_action({ diagnostics = vim.lsp.diagnostic.get_line_diagnostics(), only = { 'source.organizeImports' } })
