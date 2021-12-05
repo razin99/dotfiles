@@ -122,27 +122,39 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   end
 -- end
 
--- set a formatter if you want to override the default lsp one (if it exists)
--- lvim.lang.python.formatters = {
---   {
---     exe = "black",
---     args = {}
---   }
--- }
--- set an additional linter
--- lvim.lang.python.linters = {
---     {
---         exe = "flake8",
---         args = {}
---     }
--- }
-lvim.lang.typescript.formatters = {
-    { exe = "prettier" },
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+    {
+        exe = "black",
+        filetypes = { "python" },
+    },
+    {
+        exe = "prettierd",
+        filetypes = {
+            "typescript",
+            "typescriptreact",
+            "javascript",
+            "javascriptreact"
+        },
+    },
 }
 lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
 
-lvim.lang.typescript.linters = {
-    { exe = "eslint" },
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+    {
+        exe = "flake8",
+        filetypes = { "python" },
+    },
+    {
+        exe = "eslint_d",
+        filetypes = {
+            "typescript",
+            "typescriptreact",
+            "javascript",
+            "javascriptreact"
+        },
+    }
 }
 lvim.lang.typescriptreact.linters = lvim.lang.typescript.linters
 
