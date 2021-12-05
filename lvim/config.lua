@@ -51,6 +51,30 @@ lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 1
+lvim.builtin.dap.active = true
+local dap_install = require("dap-install")
+dap_install.config("jsnode", {})
+local dap = require("dap")
+dap.configurations.typescript = {
+  {
+    name = 'Launch',
+    type = 'node2',
+    request = 'launch',
+    program = '${file}',
+    cwd = vim.fn.getcwd(),
+    sourceMaps = true,
+    protocol = 'inspector',
+    console = 'integratedTerminal',
+  },
+  {
+    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
+    name = 'Attach to process',
+    type = 'node2',
+    request = 'attach',
+    processId = require'dap.utils'.pick_process,
+  },
+}
+
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -130,6 +154,13 @@ lvim.plugins = {
     {"lourenci/github-colors"},
     {"navarasu/onedark.nvim"},
 
+    {
+        "rcarriga/nvim-dap-ui",
+        requires = {"mfussenegger/nvim-dap"},
+        config = function ()
+            require("dapui").setup()
+        end
+    },
     {"folke/trouble.nvim"},
     {"chaoren/vim-wordmotion"},
     {"tpope/vim-surround"},
