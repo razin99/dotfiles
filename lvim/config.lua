@@ -59,43 +59,44 @@ local dap_install = require("dap-install")
 dap_install.config("jsnode", {})
 local dap = require("dap")
 dap.configurations.typescript = {
-  {
-    name = 'Launch',
-    type = 'node2',
-    request = 'launch',
-    program = '${file}',
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = 'inspector',
-    console = 'integratedTerminal',
-  },
-  {
-    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-    name = 'Attach to process',
-    type = 'node2',
-    request = 'attach',
-    processId = require'dap.utils'.pick_process,
-  },
+    {
+        name = 'Launch',
+        type = 'node2',
+        request = 'launch',
+        program = '${file}',
+        cwd = vim.fn.getcwd(),
+        sourceMaps = true,
+        protocol = 'inspector',
+        console = 'integratedTerminal',
+    },
+    {
+        -- For this to work you need to make sure the node process is started with the `--inspect` flag.
+        name = 'Attach to process',
+        type = 'node2',
+        request = 'attach',
+        processId = require'dap.utils'.pick_process,
+    },
 }
 
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
-		"python",
-		"vim",
-		"javascript",
-		"typescript",
-        "tsx",
-		"bash",
-		"c",
-		"css",
-		"dockerfile",
-		"go",
-		"graphql",
-		"html",
-		"json",
-		"yaml",
+    "python",
+    "vim",
+    "javascript",
+    "typescript",
+    "tsx",
+    "bash",
+    "c",
+    "css",
+    "dockerfile",
+    "go",
+    "graphql",
+    "html",
+    "json",
+    "yaml",
 }
+
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
