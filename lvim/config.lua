@@ -15,8 +15,6 @@ lvim.leader = "space"
 -- press enter. Sensible defaults my ass.
 lvim.builtin.cmp.confirm_opts.select = false
 
--- Esc to unhighlight search
-lvim.keys.normal_mode["<Esc>"] = ":nohl<cr>"
 -- CTRL + L passthrough, clears terminal
 lvim.keys.term_mode["<C-l>"] = "<C-l>"
 
