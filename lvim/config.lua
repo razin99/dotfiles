@@ -2,7 +2,6 @@
 -- TODO: replace file explorer with the one from Telescope
 -- BUG:  typescript and typescriptreact works but sometimes you may need to reinstall plugins sometime
 
-
 -- general
 lvim.format_on_save = true
 lvim.lint_on_save = true
@@ -47,11 +46,6 @@ lvim.builtin.which_key.mappings["t"] = {
     q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
     l = { "<cmd>Trouble loclist<cr>", "LocationList" },
     w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
-}
-
--- TODO: remove once fixed
-lvim.builtin.which_key.mappings["g"]["g"] = {
-    "<cmd>lua require('lvim.core.terminal')._exec_toggle({ cmd = 'lazygit', count = 2, direction = 'float'})<CR>", "lazygit"
 }
 
 -- TODO: User Config for predefined plugins
@@ -256,6 +250,14 @@ lvim.autocommands.custom_groups = {
     { "BufWinEnter", "*.css", two_spaces },
     { "BufWinEnter", "*.html", two_spaces },
     { "BufWinEnter", "*.json", two_spaces },
+}
+
+-- BUG: supposed to be automatic
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = lvim.lsp.popup_border })
+
+-- BUG: name from terminal execs not passed to which-key
+lvim.builtin.which_key.mappings["g"]["g"] = {
+    "<cmd>lua require('lvim.core.terminal')._exec_toggle({ cmd = 'lazygit', count = 2, direction = 'float'})<CR>", "lazygit"
 }
 
 -- vim.lsp.buf.code_action({ diagnostics = vim.lsp.diagnostic.get_line_diagnostics(), only = { 'source.organizeImports' } })
