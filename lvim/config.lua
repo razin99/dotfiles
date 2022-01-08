@@ -1,5 +1,4 @@
 -- FIX:  python's overall experience, especially when entering codeblocks, it does not indent well
--- TODO: replace file explorer with the one from Telescope
 -- BUG:  typescript and typescriptreact works but sometimes you may need to reinstall plugins sometime
 
 -- general
@@ -39,21 +38,23 @@ lvim.keys.term_mode["<C-l>"] = "<C-l>"
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["t"] = {
-    name = "+Trouble",
-    r = { "<cmd>Trouble lsp_references<cr>", "References" },
-    f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-    d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
-    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-    l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-    w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
+  name = "+Trouble",
+  r = { "<cmd>Trouble lsp_references<cr>", "References" },
+  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+  d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
+  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
 }
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
+lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 1
+
 lvim.builtin.dap.active = true
 local dap_install = require("dap-install")
 dap_install.config("jsnode", {})
@@ -77,7 +78,6 @@ dap.configurations.typescript = {
         processId = require'dap.utils'.pick_process,
     },
 }
-
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -123,9 +123,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 -- you can overwrite the null_ls setup table (useful for setting the root_dir function)
--- lvim.lsp.null_ls.setup = {
---   root_dir = require("lspconfig").util.root_pattern("Makefile", ".git", "node_modules"),
--- }
+lvim.lsp.null_ls.setup.root_dir = require("lspconfig").util.root_pattern("Makefile", ".git", "node_modules")
 -- or if you need something more advanced
 -- lvim.lsp.null_ls.setup.root_dir = function(fname)
 --   if vim.bo.filetype == "javascript" then
@@ -241,23 +239,13 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.relativenumber = true
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
-local two_spaces = "setlocal ts=2 sw=2"
-lvim.autocommands.custom_groups = {
-    -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
-    { "BufWinEnter", "*.[jt]sx", two_spaces },
-    { "BufWinEnter", "*.[jt]s", two_spaces },
-    { "BufWinEnter", "*.css", two_spaces },
-    { "BufWinEnter", "*.html", two_spaces },
-    { "BufWinEnter", "*.json", two_spaces },
-}
-
--- BUG: supposed to be automatic
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = lvim.lsp.popup_border })
-
--- BUG: name from terminal execs not passed to which-key
-lvim.builtin.which_key.mappings["g"]["g"] = {
-    "<cmd>lua require('lvim.core.terminal')._exec_toggle({ cmd = 'lazygit', count = 2, direction = 'float'})<CR>", "lazygit"
-}
-
--- vim.lsp.buf.code_action({ diagnostics = vim.lsp.diagnostic.get_line_diagnostics(), only = { 'source.organizeImports' } })
+-- TODO: change to ftplugin
+-- local two_spaces = "setlocal ts=2 sw=2"
+-- lvim.autocommands.custom_groups = {
+--     -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+--     { "BufWinEnter", "*.[jt]sx", two_spaces },
+--     { "BufWinEnter", "*.[jt]s", two_spaces },
+--     { "BufWinEnter", "*.css", two_spaces },
+--     { "BufWinEnter", "*.html", two_spaces },
+--     { "BufWinEnter", "*.json", two_spaces },
+-- }
