@@ -7,7 +7,7 @@ ZSH_THEME="af-magic"
 # Plugins loaded
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git)
+plugins=(git pip docker)
 
 source $ZSH/oh-my-zsh.sh
 
