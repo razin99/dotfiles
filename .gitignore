@@ -6,3 +6,6 @@
 
 **/config.zsh
 **/packer_compiled.lua
+
+*.log
+zsh/completion
