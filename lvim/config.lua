@@ -135,11 +135,6 @@ linters.setup {
         extra_args = { "--severity", "warning" },
     },
     {
-        command = "codespell",
-        ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-        filetypes = { "javascript", "python" },
-    },
-    {
         exe = "eslint_d",
         filetypes = {
             "typescript",
