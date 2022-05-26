@@ -43,7 +43,7 @@ lvim.builtin.which_key.mappings["t"] = {
     l = { "<cmd>Trouble loclist<cr>", "LocationList" },
     w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
     -- Things like TODO, INFO, etc. (see todo-comments plugin)
-    c = { "<cmd>TodoTrouble<cr>", "Dev Comments"}
+    c = { "<cmd>TodoTrouble<cr>", "Dev Comments" }
 }
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -85,6 +85,10 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
+-- require("lvim.lsp.manager").setup("jdtls", {
+--     root_dir = { ".git", "gradlew", "build.gradle", "build.gradle.kts" }
+-- })
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 -- ---`:LvimInfo` lists which server(s) are skiipped for the current filetype
@@ -152,16 +156,16 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-    {"folke/tokyonight.nvim"},
+    { "folke/tokyonight.nvim" },
     {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",
     },
-    {"chaoren/vim-wordmotion"},
-    {"tpope/vim-surround"},
+    { "chaoren/vim-wordmotion" },
+    { "tpope/vim-surround" },
     {
         "ray-x/lsp_signature.nvim",
-        config = function() require"lsp_signature".on_attach() end,
+        config = function() require "lsp_signature".on_attach() end,
         event = "BufRead",
     },
     {
@@ -186,7 +190,8 @@ lvim.plugins = {
             }
         end
     },
-    {"editorconfig/editorconfig-vim"}
+    { "editorconfig/editorconfig-vim" },
+    { "mfussenegger/nvim-jdtls" }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
