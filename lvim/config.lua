@@ -43,7 +43,7 @@ lvim.builtin.which_key.mappings["t"] = {
     l = { "<cmd>Trouble loclist<cr>", "LocationList" },
     w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
     -- Things like TODO, INFO, etc. (see todo-comments plugin)
-    c = { "<cmd>TodoTrouble<cr>", "Dev Comments"}
+    c = { "<cmd>TodoTrouble<cr>", "Dev Comments" }
 }
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -110,6 +110,10 @@ formatters.setup {
         filetypes = { "python" },
     },
     {
+        exe = "isort",
+        filetypes = { "python" },
+    },
+    {
         exe = "prettierd",
         filetypes = {
             "typescript",
@@ -127,6 +131,13 @@ formatters.setup {
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
     { command = "flake8", filetypes = { "python" } },
+    {
+        command = "pylint",
+        filetypes = { "python" },
+        condition = function(utils)
+            return utils.root_has_file({ ".pylintrc" })
+        end
+    },
     {
         -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
         command = "shellcheck",
@@ -150,24 +161,24 @@ local function nobg()
     local groups = { 'Normal', 'SignColumn' }
     for _, group in ipairs(groups) do
         vim.highlight.create(group, {
-            ctermbg="none",
-            guibg="none"
+            ctermbg = "none",
+            guibg = "none"
         })
     end
 end
 
 -- Additional Plugins
 lvim.plugins = {
-    {"folke/tokyonight.nvim"},
+    { "folke/tokyonight.nvim" },
     {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",
     },
-    {"chaoren/vim-wordmotion"},
-    {"tpope/vim-surround"},
+    { "chaoren/vim-wordmotion" },
+    { "tpope/vim-surround" },
     {
         "ray-x/lsp_signature.nvim",
-        config = function() require"lsp_signature".on_attach() end,
+        config = function() require "lsp_signature".on_attach() end,
         event = "BufRead",
     },
     {
@@ -189,7 +200,7 @@ lvim.plugins = {
             }
         end
     },
-    {"editorconfig/editorconfig-vim"}
+    { "editorconfig/editorconfig-vim" }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
