@@ -23,6 +23,9 @@
     # tmux
     ~/.tmux.conf: tmux/tmux.conf
 
+    # kitty-terminal
+    ~/.config/kitty: kitty/
+
     # per-machine zsh configs
     ~/.config.zsh: zsh/config.zsh
 
