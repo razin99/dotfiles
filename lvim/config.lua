@@ -1,7 +1,10 @@
 -- general
 lvim.log.level = "warn"
 lvim.colorscheme = "onedarker"
-lvim.format_on_save = true
+lvim.format_on_save = {
+    enabled = true,
+    timeout = 1000,
+}
 lvim.lint_on_save = true
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -10,6 +13,9 @@ lvim.leader = "space"
 -- keymappings
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.term_mode["<C-l>"] = "<C-l>" -- pass through Ctrl+L to clear terminal
+lvim.keys.normal_mode["<S-h>"] = ":BufferLineCycleNext<cr>"
+lvim.keys.normal_mode["<S-l>"] = ":BufferLineCyclePrev<cr>"
+lvim.keys.insert_mode["jk"] = "<ESC>"
 
 -- completion settings
 lvim.builtin.cmp.confirm_opts.select = false
@@ -49,8 +55,8 @@ lvim.builtin.which_key.mappings["t"] = {
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.terminal.open_mapping = "<C-t>"
 
 lvim.builtin.nvimtree.setup.view.side = "left"
 
@@ -119,6 +125,8 @@ formatters.setup {
             "typescriptreact",
             "javascript",
             "javascriptreact",
+            "markdown",
+            "yaml",
         },
     },
     {
@@ -137,15 +145,15 @@ linters.setup {
             return utils.root_has_file({ ".pylintrc" })
         end
     },
+    -- {
+    --     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+    --     command = "shellcheck",
+    --     ---@usage arguments to pass to the formatter
+    --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+    --     extra_args = { "--severity", "warning" },
+    -- },
     {
-        -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-        command = "shellcheck",
-        ---@usage arguments to pass to the formatter
-        -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-        extra_args = { "--severity", "warning" },
-    },
-    {
-        exe = "eslint_d",
+        exe = "eslint", -- eslint_d not working for some reason?
         filetypes = {
             "typescript",
             "typescriptreact",
@@ -172,7 +180,7 @@ lvim.plugins = {
     },
     {
         "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
         config = function()
             require("todo-comments").setup()
         end
