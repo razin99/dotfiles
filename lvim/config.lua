@@ -13,8 +13,8 @@ lvim.leader = "space"
 -- keymappings
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.term_mode["<C-l>"] = "<C-l>" -- pass through Ctrl+L to clear terminal
-lvim.keys.normal_mode["<S-h>"] = ":BufferLineCycleNext<cr>"
-lvim.keys.normal_mode["<S-l>"] = ":BufferLineCyclePrev<cr>"
+lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<cr>"
+lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<cr>"
 lvim.keys.insert_mode["jk"] = "<ESC>"
 
 -- completion settings
