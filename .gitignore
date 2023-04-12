@@ -6,3 +6,5 @@
 
 **/config.zsh
 **/packer_compiled.lua
+
+**/.DS_STORE
