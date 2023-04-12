@@ -10,7 +10,7 @@ FPATH="$(/opt/homebrew/bin/brew --prefix)/share/zsh/site-functions:${FPATH}"
 # Plugins loaded
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git pip docker aliases aws kubectl ripgrep terraform tmux httpie)
+plugins=(git pip docker aws kubectl ripgrep terraform tmux httpie)
 
 PATH="$PATH:/opt/homebrew/bin" source $ZSH/oh-my-zsh.sh
 
