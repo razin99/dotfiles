@@ -2,15 +2,15 @@
     link:
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     # vim + nvim
     ~/.vim: vim/vim
     ~/.vimrc: vim/vimrc
     ~/.config/nvim:
-        create: true
-        path: vim/nvim
+      create: true
+      path: vim/nvim
 
     # lvim
     ~/.config/lvim/config.lua: lvim/config.lua
@@ -29,7 +29,10 @@
     # per-machine zsh configs
     ~/.config.zsh: zsh/config.zsh
 
+    # Homebrew packages
+    ~/Brewfile: Brewfile
+
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [vim -c 'q' -c 'PlugInstall' -c 'qa' >/dev/null, Install vimplug plugins]
-
+    - [brew bundle install, Install brew packages from ~/Brewfile]
