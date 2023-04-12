@@ -153,7 +153,7 @@ linters.setup {
     --     extra_args = { "--severity", "warning" },
     -- },
     {
-        exe = "eslint", -- eslint_d not working for some reason?
+        exe = "eslint_d",
         filetypes = {
             "typescript",
             "typescriptreact",
@@ -166,7 +166,7 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-    { "folke/tokyonight.nvim" },
+    { "navarasu/onedark.nvim" },
     {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",
