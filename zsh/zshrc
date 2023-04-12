@@ -4,12 +4,15 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="af-magic"
 
+# brew completion
+FPATH="$(/opt/homebrew/bin/brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 # Plugins loaded
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git)
+plugins=(git pip docker aliases aws kubectl ripgrep terraform tmux httpie)
 
-source $ZSH/oh-my-zsh.sh
+PATH="$PATH:/opt/homebrew/bin" source $ZSH/oh-my-zsh.sh
 
 # Configs that should be available to all machine
 export LANG=en_US.UTF-8
