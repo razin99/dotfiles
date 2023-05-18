@@ -1,6 +1,6 @@
 -- general
 lvim.log.level = "warn"
-lvim.colorscheme = "onedarker"
+lvim.colorscheme = "lunar"
 lvim.format_on_save = {
     enabled = true,
     timeout = 1000,
@@ -16,9 +16,6 @@ lvim.keys.term_mode["<C-l>"] = "<C-l>" -- pass through Ctrl+L to clear terminal
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<cr>"
 lvim.keys.insert_mode["jk"] = "<ESC>"
-
--- completion settings
-lvim.builtin.cmp.confirm_opts.select = false
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -166,7 +163,6 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-    { "navarasu/onedark.nvim" },
     {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",
@@ -174,27 +170,11 @@ lvim.plugins = {
     { "chaoren/vim-wordmotion" },
     { "tpope/vim-surround" },
     {
-        "ray-x/lsp_signature.nvim",
-        config = function() require "lsp_signature".on_attach() end,
-        event = "BufRead",
-    },
-    {
         "folke/todo-comments.nvim",
         dependencies = "nvim-lua/plenary.nvim",
+        event = "BufRead",
         config = function()
             require("todo-comments").setup()
-        end
-    },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require("indent_blankline").setup {
-                char = "│",
-                space_char_blankline = " ",
-                show_current_context = true,
-                buftype_exclude = { "terminal", "help", "nofile", "alpha" },
-                filetype_exclude = { "terminal", "help", "nofile", "alpha" }
-            }
         end
     },
     { "editorconfig/editorconfig-vim" }
