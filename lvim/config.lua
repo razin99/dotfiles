@@ -10,6 +10,11 @@ lvim.lint_on_save = true
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 
+lvim.builtin.which_key.setup.plugins.presets.z = true
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
+
 -- keymappings
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.term_mode["<C-l>"] = "<C-l>" -- pass through Ctrl+L to clear terminal
