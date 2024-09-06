@@ -33,6 +33,6 @@
     ~/Brewfile: Brewfile
 
 - shell:
-    - [git submodule update --init --recursive, Installing submodules]
+    - [git submodule update --init --recursive --remote, Installing submodules]
     - [vim -c 'q' -c 'PlugInstall' -c 'qa' >/dev/null, Install vimplug plugins]
     - [brew bundle install, Install brew packages from ~/Brewfile]
