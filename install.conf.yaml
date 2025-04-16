@@ -32,6 +32,8 @@
     # Homebrew packages
     ~/Brewfile: Brewfile
 
+    ~/.config/ghostty/config: ghostty/config
+
 - shell:
     - [git submodule update --init --recursive --remote, Installing submodules]
     - [vim -c 'q' -c 'PlugInstall' -c 'qa' >/dev/null, Install vimplug plugins]
